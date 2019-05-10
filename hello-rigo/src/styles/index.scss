@@ -1,5 +1,13 @@
 @import "~bootstrap/scss/bootstrap.scss";
 
+.todo{
+    display: block;
+    position: relative; 
+}
+.close-todo{
+    position: absolute; 
+     right: 10px;
+}
 /* 
 
     You can write your own styles here...
