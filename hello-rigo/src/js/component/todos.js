@@ -6,7 +6,7 @@ const Todos = ({ todos, deleteTodo }) => {
 	const todosList = todos.length ? (
 		todos.map(todo => {
 			return (
-				<Container key={todo.id} className="border todo">
+				<Container key={todo.id} className="todo">
 					<Row>
 						<h2>{todo.content}</h2>
 						<i
