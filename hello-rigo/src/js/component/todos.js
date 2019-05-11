@@ -7,7 +7,7 @@ const Todos = ({ todos, deleteTodo }) => {
 		todos.map(todo => {
 			return (
 				<Container key={todo.id} className="todo">
-					<Row>
+					<Row className="todo-inside">
 						<h2>{todo.content}</h2>
 						<i
 							className="fas fa-times close-todo"
