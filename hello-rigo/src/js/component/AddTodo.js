@@ -1,11 +1,20 @@
 import React from "react";
-import { Col, Container, Form, FormGroup, Label, Input } from "reactstrap";
+import {
+	Col,
+	Container,
+	Form,
+	FormGroup,
+	Label,
+	Input,
+	Button
+} from "reactstrap";
 import PropTypes from "prop-types";
 
 class AddTodo extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
+			date: "",
 			content: ""
 		};
 	}
@@ -15,22 +24,41 @@ class AddTodo extends React.Component {
 			content: e.target.value
 		});
 	};
+	handleDateChange = e => {
+		this.setState({
+			date: e.target.value
+		});
+	};
 	handleSubmit = e => {
 		e.preventDefault();
 		this.props.addTodo(this.state);
 		this.setState({
+			date: "",
 			content: ""
 		});
 	};
 	render() {
 		return (
 			<Container>
-				<Form onSubmit={this.handleSubmit}>
+				<Form>
 					<FormGroup row>
-						<Label for="Todo-content" sm={2}>
+						<Label for="Todo-date" sm={1}>
+							Date
+						</Label>
+						<Col sm={5}>
+							<Input
+								type="text"
+								name="date"
+								id="Todo-date"
+								placeholder="Date"
+								value={this.state.date}
+								onChange={this.handleDateChange}
+							/>
+						</Col>
+						<Label for="Todo-content" sm={1}>
 							Todo?
 						</Label>
-						<Col sm={10}>
+						<Col sm={5}>
 							<Input
 								type="text"
 								name="todo"
@@ -41,6 +69,7 @@ class AddTodo extends React.Component {
 							/>
 						</Col>
 					</FormGroup>
+					<Button onClick={this.handleSubmit}>Submit</Button>
 				</Form>
 			</Container>
 		);

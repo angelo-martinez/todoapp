@@ -1,7 +1,7 @@
 import React from "react";
 
 //include images into your bundle
-import Todos from "./todos";
+import Todos from "./Todos";
 import AddTodo from "./AddTodo";
 
 export class Home extends React.Component {
@@ -11,18 +11,18 @@ export class Home extends React.Component {
 			todos: [
 				{
 					id: 1,
-					content:
-						"This is a simple ReactJS Todo App that I built @GeeksAcademy"
+					date: "5/3",
+					content: "Graduate 4Geeks"
 				},
 				{
 					id: 2,
-					content:
-						"Feel free to play around with it and let me know what you think about it!"
+					date: "5/4",
+					content: "Make awesome projects"
 				},
 				{
 					id: 3,
-					content:
-						"No really! Play around with it if you can, its part of my portfolio and I'm trying to make it awesome!!"
+					date: "5/10",
+					content: "Master React"
 				}
 			]
 		};
@@ -44,14 +44,14 @@ export class Home extends React.Component {
 	};
 	render() {
 		return (
-			<div className="text-center mt-5">
+			<div className="mt-5">
 				<h1>TO DO:</h1>
-				<div className="todos-list">
+				<ul>
 					<Todos
 						todos={this.state.todos}
 						deleteTodo={this.deleteTodo}
 					/>
-				</div>
+				</ul>
 				<AddTodo addTodo={this.addTodo} />
 			</div>
 		);
